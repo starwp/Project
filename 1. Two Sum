@@ -1,3 +1,7 @@
+/*Method 1: 
+Idea: Traversal the whole array to find two numbers. 
+Time complexity: O(n^2)  
+*/
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int[] ans = new int[2];
@@ -10,11 +14,21 @@ class Solution {
                   ans[0]=i;
                   ans[1]=j;
                   return ans;
-               }
-                  
+               }  
             }
         }
-        return ans;
+        return ans;  
+    }
+}
+
+/*Method 2: 
+Idea: Sorting it firstly (MergeSort), then decide one element and search another by binary seach. 
+Time complexity: O(nlogn)  
+*/
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int[] ans = new int[2];
+        
         
         int x=nums.length/2+nums.length%2;
         int[] dest = new int[nums.length];
@@ -49,3 +63,31 @@ class Solution {
         
     }
 }
+/*Appendix: 
+MergeSort: recursion version. 
+*/
+public int[] MergeSort(int[] nums) {
+    int[] left = new int[nums.length/2+nums.length%2];
+    System.arraycopy(nums, 0, left, 0, nums.length/2+nums.length%2);
+    int[] right = new int[nums.length/2];
+    System.arraycopy(nums, nums.length/2+nums.length%2+1, right, 0, nums.length/2);
+    Mergersort[left];
+    Mergersort[right];
+    int[] result = new int[nums.length];
+    int l=0;
+    int r=0;
+    for(i=0;i<nums.length;i++)
+    {
+        if(left[l]<right[r])
+        {
+            result[i]=left[l];
+            l++;
+        }
+        else
+        {
+            result[i]=right[r];
+            r++;
+        }
+    }
+    return result;
+
