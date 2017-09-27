@@ -1,3 +1,7 @@
+/*Method 1: 
+Idea: Traversal the whole array to find the peak. 
+Time complexity: O(n)  
+*/
 class Solution {
     public int findPeakElement(int[] nums) {
         int index=0;
@@ -24,3 +28,8 @@ class Solution {
         return index;
     }
 }
+
+/*Method 2: 
+Idea: Binary search. 
+Time complexity: O(logn)  
+*/
