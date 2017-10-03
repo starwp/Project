@@ -32,4 +32,22 @@ class Solution {
 /*Method 2: 
 Idea: Binary search. 
 Time complexity: O(logn)  
+
+class Solution {
+    public int findPeakElement(int[] nums) {
+        int index=0;
+        int left=0;
+        int right=nums.length-1;
+        while(left<right)
+        {
+            index=(left+right)/2;
+            if(nums[index]<nums[index+1])
+                left=index+1;
+            else
+                right=index;
+        }
+       
+        return left;
+    }
+}
 */
